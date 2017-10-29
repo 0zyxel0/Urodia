@@ -29,7 +29,7 @@
 					</div>
 					<div class="profile_info">
 						<span>Welcome,</span>
-						<h2>Dr. Dick</h2>
+						<h2>{{ Auth::user()->name }}</h2>
 					</div>
 				</div>
 				<!-- /menu profile quick info -->
@@ -43,11 +43,11 @@
 						<ul class="nav side-menu">
 							<li><a><i class="fa fa-home"></i> Home </a>
 							</li>
-							<li><a><i class="fa fa-desktop"></i> Schedule <span class="fa fa-chevron-down"></span></a>
+						{{--	<li><a><i class="fa fa-desktop"></i> Schedule <span class="fa fa-chevron-down"></span></a>
 								<ul class="nav child_menu">
 									<li><a href="calendar.html">Calendar</a></li>
 								</ul>
-							</li>
+							</li>--}}
 							<li><a><i class="fa fa-table"></i> Patient Records <span class="fa fa-chevron-down"></span></a>
 								<ul class="nav child_menu">
 									<li><a href="newPatient">New Patient</a></li>
@@ -73,11 +73,11 @@
 					<ul class="nav navbar-nav navbar-right">
 						<li class="">
 							<a href="" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-								<img src="images/img.jpg" alt="">Dr. Dick
+								<img src="images/img.jpg" alt="">{{ Auth::user()->name }}
 								<span class=" fa fa-angle-down"></span>
 							</a>
 							<ul class="dropdown-menu dropdown-usermenu pull-right">
-								<li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+								<li><a href="logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
 							</ul>
 						</li>
 					</ul>

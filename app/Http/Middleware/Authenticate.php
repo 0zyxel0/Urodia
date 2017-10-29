@@ -17,14 +17,11 @@ class Authenticate
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        if (Auth::guard($guard)->guest()) {
-            if ($request->ajax() || $request->wantsJson()) {
-                return response('Unauthorized.', 401);
-            } else {
-                return redirect()->guest('login');
-            }
+       // redirect the user to "/login"
+// and stores the url being accessed on session
+        if (Auth::guest()) {
+            return redirect()->guest('login');
         }
-
         return $next($request);
     }
 }

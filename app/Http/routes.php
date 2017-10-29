@@ -11,9 +11,14 @@
 |
 */
 
-Route::get('/', ['uses'=>'SiteController@index']);
+Route::get('/', 'SiteController@login');
 Route::get('dashboard', ['uses'=>'SiteController@dashboard']);
 Route::get('profile', ['uses'=>'SiteController@profile']);
 Route::get('test', ['uses'=>'SiteController@test']);
 Route::get('viewPatientRecords', ['uses'=>'SiteController@viewPatientRecords']);
-Route::get('newPatient', ['uses'=>'SiteController@addPatientRecords']);
+Route::get('newPatient', ['uses'=>'PatientController@newPatientRecord']);
+Route::post('store','PatientController@store');
+
+Route::auth();
+
+
