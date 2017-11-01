@@ -18,7 +18,7 @@ class CreatePatientsTable extends Migration
             $table->string('givenname');
             $table->string('familyName');
             $table->string('middlename');
-            $table->dateTime('birthday');
+            $table->date('birthday');
             $table->string('age');
             $table->string('email');
             $table->string('obsIns');

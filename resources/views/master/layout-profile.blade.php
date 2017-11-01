@@ -9,6 +9,8 @@
 <link href="css/custom.css" rel="stylesheet">
 <link href="css/jquery.mCustomScrollbar.css" rel="stylesheet">
 <link href="css/font-awesome.css" rel="stylesheet">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="js/jquery.js"></script>
 
 <body class="nav-md">

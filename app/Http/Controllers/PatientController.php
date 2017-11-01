@@ -44,7 +44,7 @@ class PatientController extends Controller
         $givenName = $request->input('givenName');
         $familyName = $request->input('familyName');
         $middleName = $request->input('middleName');
-        $birthday = $request->input('birthday');
+        $birthday = date("Y-m-d", strtotime($request->input('birthday')));
         $age = $request->input('age');
         $email = $request->input('email');
         $obsIns = $request->input('obsIns');
@@ -52,6 +52,7 @@ class PatientController extends Controller
         $gender = $request->input('gender');
         $created_at = date('Y-m-d H:i:s');
         $updated_at = date('Y-m-d H:i:s');
+
 
         $data = array(
             'partyid'=>$partyid,
@@ -66,16 +67,13 @@ class PatientController extends Controller
             'gender'=>$gender,
             'created_at'=>$created_at,
             'updated_at'=>$updated_at
-
-
-
             );
 
             DB::table('patients')->insert($data);
 
 
 
-        return 'success';
+        return $partyid;
     }
 
     /**
@@ -84,9 +82,9 @@ class PatientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
-        //
+        return $request->all();
     }
 
     /**

@@ -18,6 +18,7 @@ Route::get('test', ['uses'=>'SiteController@test']);
 Route::get('viewPatientRecords', ['uses'=>'SiteController@viewPatientRecords']);
 Route::get('newPatient', ['uses'=>'PatientController@newPatientRecord']);
 Route::post('store','PatientController@store');
+Route::post('show','PatientController@show');
 
 Route::auth();
 

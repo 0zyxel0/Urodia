@@ -1,6 +1,28 @@
 @extends('master\layout-profile')
 @section('content')
 <script src="js/jquery.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+    $( function() {
+        $( "#birthday" ).datepicker({
+            dateFormat: "yy-mm-dd",
+            onSelect: function(value, ui) {
+                var today = new Date(),
+                    age = today.getFullYear() - ui.selectedYear;
+                $('#birthday').attr('value',value);
+                $('#age').attr('value',age);
+
+            },
+            maxDate: '+0d',
+            changeMonth: true,
+            changeYear: true,
+            defaultDate: '-18yr'
+
+        });
+    } );
+</script>
+
 
 <!-- page content -->
 <div class="right_col" role="main">
@@ -18,7 +40,6 @@
 
                     <!-- start form for validation -->
                     <form id="demo-form" data-parsley-validate action="store" method="post">
-
                         <label for="givenName">Given Name * :</label>
                         <input type="text" id="givenName" class="form-control" name="givenName" required />
 
