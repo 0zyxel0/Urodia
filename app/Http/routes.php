@@ -20,6 +20,7 @@ Route::get('newPatient', ['uses'=>'PatientController@newPatientRecord']);
 Route::post('store','PatientController@store');
 Route::post('show','PatientController@show');
 
+Route::get('/profile/{id}','PatientController@viewProfile');
 Route::auth();
 
 

@@ -5,13 +5,15 @@
 	<title>Urodia</title>
 
 </head>
-<link href="css/bootstrap.css" rel="stylesheet">
-<link href="css/custom.css" rel="stylesheet">
-<link href="css/jquery.mCustomScrollbar.css" rel="stylesheet">
-<link href="css/font-awesome.css" rel="stylesheet">
+<link href="http://localhost:8899/urodia/public/css/bootstrap.css" rel="stylesheet">
+<link href="http://localhost:8899/urodia/public/css/custom.css" rel="stylesheet">
+<link href="http://localhost:8899/urodia/public/css/jquery.mCustomScrollbar.css" rel="stylesheet">
+<link href="http://localhost:8899/urodia/public/css/font-awesome.css" rel="stylesheet">
+<link href="http://localhost:8899/urodia/public/css/datatables.css" rel="stylesheet">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script src="js/jquery.js"></script>
+<script src="http://localhost:8899/urodia/public/js/jquery.js"></script>
+<script src="http://localhost:8899/urodia/public/js/datatables.js"></script>
 
 <body class="nav-md">
 <div class="container body">
@@ -27,7 +29,7 @@
 				<!-- menu profile quick info -->
 				<div class="profile clearfix">
 					<div class="profile_pic">
-						<img src="images/img.jpg" alt="..." class="img-circle profile_img">
+						<img src="http://localhost:8899/urodia/public/images/img.jpg" alt="..." class="img-circle profile_img">
 					</div>
 					<div class="profile_info">
 						<span>Welcome,</span>
@@ -43,7 +45,7 @@
 					<div class="menu_section">
 						<h3>Options</h3>
 						<ul class="nav side-menu">
-							<li><a><i class="fa fa-home"></i> Home </a>
+							<li><a href="dashboard"><i class="fa fa-home"></i> Home </a>
 							</li>
 						{{--	<li><a><i class="fa fa-desktop"></i> Schedule <span class="fa fa-chevron-down"></span></a>
 								<ul class="nav child_menu">
@@ -53,7 +55,7 @@
 							<li><a><i class="fa fa-table"></i> Patient Records <span class="fa fa-chevron-down"></span></a>
 								<ul class="nav child_menu">
 									<li><a href="newPatient">New Patient</a></li>
-									<li><a href="viewPatientRecords">View Patient Records</a></li>
+									<li><a href="http://localhost:8899/urodia/public/viewPatientRecords">View Patient Records</a></li>
 								</ul>
 							</li>
 						</ul>
@@ -75,7 +77,7 @@
 					<ul class="nav navbar-nav navbar-right">
 						<li class="">
 							<a href="" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-								<img src="images/img.jpg" alt="">{{ Auth::user()->name }}
+								<img src="http://localhost:8899/urodia/public/images/img.jpg" alt="">{{ Auth::user()->name }}
 								<span class=" fa fa-angle-down"></span>
 							</a>
 							<ul class="dropdown-menu dropdown-usermenu pull-right">

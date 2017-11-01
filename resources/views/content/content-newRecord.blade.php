@@ -55,6 +55,10 @@
                         <label for="age">Age * :</label>
                         <input type="text" id="age" class="form-control" name="age" required />
 
+                        <label for="address">Address * :</label>
+                        <input type="text" id="address" class="form-control" name="address" required />
+
+
                         <label for="email">Email * :</label>
                         <input type="email" id="email" class="form-control" name="email" data-parsley-trigger="change" required />
 

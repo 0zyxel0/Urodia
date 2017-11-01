@@ -1,8 +1,8 @@
 @extends('master\layout-profile')
 @section('content')
-  <script src="js/bootstrap.js"></script>
-  <script src="js/custom.js"></script>
-  <script src="js/jquery.mCustomScrollbar.js"></script>
+  <script src="http://localhost:8899/urodia/public/js/bootstrap.js"></script>
+  <script src="http://localhost:8899/urodia/public/js/custom.js"></script>
+  <script src="http://localhost:8899/urodia/public/js/jquery.mCustomScrollbar.js"></script>
 
 
   <div class="right_col" role="main">
@@ -24,22 +24,25 @@
                   <div class="profile_img">
                     <div id="crop-avatar">
                       <!-- Current avatar -->
-                      <img class="img-responsive avatar-view" src="images/picture.jpg" alt="Avatar" title="Change the avatar">
+                      <img class="img-responsive avatar-view" src="http://localhost:8899/urodia/public/images/picture.jpg" alt="Avatar" title="Change the avatar">
                     </div>
                   </div>
-                  <h3>Samuel Doe</h3>
+                  <h3>
+                    @foreach($data as $data)
+                       {{$data["givenname"]}}
+                  </h3>
 
                   <ul class="list-unstyled user_data">
-                    <li><i class="fa fa-map-marker user-profile-icon"></i> San Francisco, California, USA
-                    </li>
+                    <li><i class="fa fa-map-marker user-profile-icon"></i>
 
-                    <li>
-                      <i class="fa fa-briefcase user-profile-icon"></i> Software Engineer
+                        {{$data["address"]}}
+
+                      @endforeach
                     </li>
 
                   </ul>
 
-                  <a class="btn btn-success"><i class="fa fa-edit m-right-xs"></i>Edit Profile</a>
+                  <a class="btn btn-success"><i class="fa fa-edit m-right-xs"></i>Add Diagnosis</a>
                   <br />
 
 

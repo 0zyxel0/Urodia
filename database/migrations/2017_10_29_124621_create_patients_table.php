@@ -20,6 +20,7 @@ class CreatePatientsTable extends Migration
             $table->string('middlename');
             $table->date('birthday');
             $table->string('age');
+            $table->string('address');
             $table->string('email');
             $table->string('obsIns');
             $table->string('menopause');

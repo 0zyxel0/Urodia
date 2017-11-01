@@ -46,6 +46,7 @@ class PatientController extends Controller
         $middleName = $request->input('middleName');
         $birthday = date("Y-m-d", strtotime($request->input('birthday')));
         $age = $request->input('age');
+        $address = $request->input('address');
         $email = $request->input('email');
         $obsIns = $request->input('obsIns');
         $menopause = $request->input('menopause');
@@ -61,6 +62,7 @@ class PatientController extends Controller
             'middleName'=>$middleName,
             'birthday'=>$birthday,
             'age'=>$age,
+            'address'=>$address,
             'email'=>$email,
             'obsIns'=>$obsIns,
             'menopause'=>$menopause,
@@ -71,9 +73,11 @@ class PatientController extends Controller
 
             DB::table('patients')->insert($data);
 
+            $id= $partyid;
 
+        return redirect('profile/'.$id);
+        //return redirect('profile');
 
-        return $partyid;
     }
 
     /**
@@ -120,4 +124,19 @@ class PatientController extends Controller
     {
         //
     }
+
+    public function viewProfile($id)    {
+
+            $qry = 'SELECT * FROM patients WHERE partyid LIKE "'.$id.'"';
+            $data = DB::select($qry);
+            $convs = json_encode($data);
+       // dd($convs);
+
+        return view('content.content-profile', [ 'data' => json_decode($convs,true) ]);
+
+    }
+
+
+
+
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Patient;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests;
@@ -34,7 +35,10 @@ class SiteController extends Controller
 
     public function viewPatientRecords()
     {
-       return view('content.content-PatientRecords');
+        $data = Patient::all ();
+
+
+       return view('content.content-patientRecords')->withData ( $data );
     }
 
     public function addPatientRecords()
@@ -56,5 +60,5 @@ class SiteController extends Controller
     {
         return view('content.content-dashboard');
     }
- 
+
 }

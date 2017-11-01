@@ -15,6 +15,6 @@ class Patient extends Model
         });
     }
 
-
-    protected  $fillable = ['partyid','givenName','familyName','middleName', 'birthday','age','email','obsIns','menopause','gender'];
+    protected $dataTables="datatables_data";
+    protected  $fillable = ['partyid','givenName','familyName','middleName', 'birthday','age','address','email','obsIns','menopause','gender'];
 }
