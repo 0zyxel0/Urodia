@@ -10,9 +10,12 @@
 <link href="http://localhost:8899/urodia/public/css/jquery.mCustomScrollbar.css" rel="stylesheet">
 <link href="http://localhost:8899/urodia/public/css/font-awesome.css" rel="stylesheet">
 <link href="http://localhost:8899/urodia/public/css/datatables.css" rel="stylesheet">
+<link href="http://localhost:8899/urodia/public/css/custom-checkboxes.css" rel="stylesheet">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="http://localhost:8899/urodia/public/js/jquery.js"></script>
+
 <script src="http://localhost:8899/urodia/public/js/datatables.js"></script>
 
 <body class="nav-md">

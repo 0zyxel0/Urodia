@@ -60,5 +60,7 @@ class SiteController extends Controller
     {
         return view('content.content-dashboard');
     }
-
+    public function newRecordDiagnosis(){
+        return view('content.content-diagnosis');
+    }
 }

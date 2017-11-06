@@ -6,7 +6,7 @@
 
 <script>
     $(document).ready(function() {
-        $('#dataTables').DataTable({
+      var table =  $('#dataTables').DataTable({
             "columnDefs":
                 [
                     {
@@ -17,7 +17,20 @@
 
                 ]
         });
+
+      $('#dataTables tbody').on( 'click', '#btn_viewProfile', function () {
+
+            var data = table.row( $(this).parents('tr') ).data();
+          window.location.href='profile/'+data[0];
+
+
+
+        });
+
     } );
+
+
+
 </script>
 
         <!-- page content -->
@@ -85,7 +98,7 @@
                             <td>{{$item->gender}}</td>
                             <td>
 
-                              <button class="edit-modal btn btn-info">
+                              <button class="edit-modal btn btn-info" id="btn_viewProfile">
                                 <span class="glyphicon glyphicon-edit"></span> View
                               </button>
                               <button class="edit-modal btn btn-info">
