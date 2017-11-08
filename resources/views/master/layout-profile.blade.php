@@ -48,7 +48,7 @@
 					<div class="menu_section">
 						<h3>Options</h3>
 						<ul class="nav side-menu">
-							<li><a href="dashboard"><i class="fa fa-home"></i> Home </a>
+							<li><a href="http://localhost:8899/urodia/public/dashboard"><i class="fa fa-home"></i> Home </a>
 							</li>
 						{{--	<li><a><i class="fa fa-desktop"></i> Schedule <span class="fa fa-chevron-down"></span></a>
 								<ul class="nav child_menu">
@@ -57,7 +57,7 @@
 							</li>--}}
 							<li><a><i class="fa fa-table"></i> Patient Records <span class="fa fa-chevron-down"></span></a>
 								<ul class="nav child_menu">
-									<li><a href="newPatient">New Patient</a></li>
+									<li><a href="http://localhost:8899/urodia/public/newPatient">New Patient</a></li>
 									<li><a href="http://localhost:8899/urodia/public/viewPatientRecords">View Patient Records</a></li>
 								</ul>
 							</li>
@@ -80,7 +80,7 @@
 					<ul class="nav navbar-nav navbar-right">
 						<li class="">
 							<a href="" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-								<img src="http://localhost:8899/urodia/public/images/img.jpg" alt="">{{ Auth::user()->name }}
+								{{ Auth::user()->name }}
 								<span class=" fa fa-angle-down"></span>
 							</a>
 							<ul class="dropdown-menu dropdown-usermenu pull-right">

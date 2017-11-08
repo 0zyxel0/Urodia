@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use DB;
 class SiteController extends Controller
 {
     /**
@@ -60,7 +60,13 @@ class SiteController extends Controller
     {
         return view('content.content-dashboard');
     }
-    public function newRecordDiagnosis(){
-        return view('content.content-diagnosis');
+    public function newRecordDiagnosis($id){
+
+        $qry = 'SELECT * FROM patients WHERE partyid LIKE "'.$id.'"';
+        $data = DB::select($qry);
+        $convs = json_encode($data);
+
+        return view('content.content-diagnosis', [ 'data' => json_decode($convs,true) ]);
     }
+
 }

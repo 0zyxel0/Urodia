@@ -17,7 +17,8 @@ Route::get('profile', ['uses'=>'SiteController@profile']);
 Route::get('test', ['uses'=>'SiteController@test']);
 Route::get('viewPatientRecords', ['uses'=>'SiteController@viewPatientRecords']);
 Route::get('newPatient', ['uses'=>'PatientController@newPatientRecord']);
-Route::get('newDiagnosis', ['uses'=>'SiteController@newRecordDiagnosis']);
+
+Route::get('newDiagnosis/{id}', ['uses'=>'SiteController@newRecordDiagnosis']);
 Route::post('store','PatientController@store');
 Route::post('show','PatientController@show');
 

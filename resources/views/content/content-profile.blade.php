@@ -37,14 +37,14 @@
 
                         {{$data["address"]}}
 
-                      @endforeach
+
                     </li>
 
                   </ul>
 
-                  <a class="btn btn-success"><i class="fa fa-edit m-right-xs"></i>Add Diagnosis</a>
+                  <a class="btn btn-success" href="http://localhost:8899/urodia/public/newDiagnosis/{{$data["partyid"]}}"><i class="fa fa-edit m-right-xs"></i>Add Diagnosis</a>
                   <br />
-
+                  @endforeach
 
                 </div>
                 <div class="col-md-9 col-sm-9 col-xs-12">
