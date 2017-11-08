@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a9c4da1e-a956-4182-9b6a-20dc4a34af84" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/SiteController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/SiteController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/content/content-diagnosis.blade.php" afterPath="$PROJECT_DIR$/resources/views/content/content-diagnosis.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/content/content-profile.blade.php" afterPath="$PROJECT_DIR$/resources/views/content/content-profile.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/master/layout-profile.blade.php" afterPath="$PROJECT_DIR$/resources/views/master/layout-profile.blade.php" />
-    </list>
+    <list default="true" id="a9c4da1e-a956-4182-9b6a-20dc4a34af84" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -466,12 +459,12 @@
       <workItem from="1509528248860" duration="16290000" />
       <workItem from="1509728283650" duration="599000" />
       <workItem from="1509991470227" duration="7494000" />
-      <workItem from="1510130447299" duration="5160000" />
+      <workItem from="1510130447299" duration="5756000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42738000" />
+    <option name="totallyTimeSpent" value="43334000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1874" height="1096" extended-state="6" />
