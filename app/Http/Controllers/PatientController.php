@@ -137,8 +137,34 @@ class PatientController extends Controller
     }
 
 
+    public function newRecordDiagnosis($id){
+
+        $qry = 'SELECT * FROM patients WHERE partyid LIKE "'.$id.'"';
+        $data = DB::select($qry);
+        $convs = json_encode($data);
+
+        return view('content.content-diagnosis', [ 'data' => json_decode($convs,true) ]);
+    }
 
 
+    public function saveDiagnosis(Request $request)
+    {
+        // Patient::create(Request::all());
+        $partyid = Uuid::uuid();
+
+
+        $data = array(
+            'partyid'=>$partyid,
+        );
+
+        DB::table('diagnosis')->insert($data);
+
+        $id= $partyid;
+
+        return redirect('profile/'.$id);
+        //return redirect('profile');
+
+    }
 
 
 

@@ -13,7 +13,7 @@ class CreateDiagnosisTable extends Migration
     public function up()
     {
         Schema::create('diagnosis', function (Blueprint $table) {
-            $table->increments('id');
+            $table->uuid('diagnosisid');
             $table->uuid('partyid');
             $table->string('givenname');
             $table->string('familyName');
@@ -36,6 +36,6 @@ class CreateDiagnosisTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('diagnosis');
     }
 }

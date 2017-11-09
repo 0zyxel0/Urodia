@@ -16,5 +16,5 @@ class Diagnosis extends Model
     }
 
 
-    protected  $fillable = [];
+    protected  $fillable = ['diagnosisid','partyid'];
 }
