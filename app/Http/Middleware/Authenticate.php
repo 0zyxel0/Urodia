@@ -20,7 +20,7 @@ class Authenticate
        // redirect the user to "/login"
 // and stores the url being accessed on session
         if (Auth::guest()) {
-            return redirect()->guest('login');
+            return redirect()->guest('/login');
         }
         return $next($request);
     }
