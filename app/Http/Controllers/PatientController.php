@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use App\Patient;
+use App\checkupRecord;
 use DB;
 class PatientController extends Controller
 {
@@ -130,11 +131,30 @@ class PatientController extends Controller
             $qry = 'SELECT * FROM patients WHERE partyid LIKE "'.$id.'"';
             $data = DB::select($qry);
             $convs = json_encode($data);
-       // dd($convs);
+      //  dd($convs);
 
-        return view('content.content-profile', [ 'data' => json_decode($convs,true) ]);
+
+        $qry2 = 'SELECT * FROM checkup_records WHERE partyid LIKE "'.$id.'" ORDER BY created_at';
+        $data2 = DB::select($qry2);
+        //$data2 = checkupRecord::all ();
+        //$col = collect([$data2]);
+        $convs2 = json_encode($data2);
+        //dd($col);
+
+        return view('content.content-profile',[ 'data' => json_decode($convs,true),'data2' => json_decode($convs2,true)  ]);
 
     }
+
+
+    public function viewCheckupRecord($id){
+
+        $qry = 'SELECT * FROM checkup_records WHERE checkid LIKE "'.$id.'"';
+        $data = DB::select($qry);
+        $convs = json_encode($data);
+
+        return view('content.content-viewcheck',['data'=>json_decode($convs,true)]);
+    }
+
 
 
     public function newRecordDiagnosis($id){
@@ -172,7 +192,45 @@ class PatientController extends Controller
     $data = DB::select($qry);
     $convs = json_encode($data);
 
+
     return view('content.content-checkup', [ 'data' => json_decode($convs,true) ]);
 }
+
+    public function storeCheckupRecord(Request $request)
+    {
+
+        // Patient::create(Request::all());
+        $checkid = Uuid::uuid();
+        $partyid = $request->input('partyid');
+        $complaint_summary = $request->input('complaint_summary');
+        $complaint_details = $request->input('complaint_details');
+        $diagnosis_details = $request->input('diagnosis_details');
+        $treatment_details = $request->input('treatment_gvn');
+        $created_at = date('Y-m-d H:i:s');
+        $updated_at = date('Y-m-d H:i:s');
+
+
+
+        $data = array(
+            'checkid'=>$checkid,
+            'partyid'=>$partyid,
+            'complaint_summary' =>$complaint_summary,
+            'complaint_details'=>$complaint_details,
+            'diagnosis_details'=>$treatment_details,
+            'treatment_details'=>$diagnosis_details,
+            'created_at'=>$created_at,
+            'updated_at'=>$updated_at
+        );
+
+        DB::table('checkup_records')->insert($data);
+
+        $id= $partyid;
+
+        return redirect('profile/'.$id);
+        //return redirect('profile');
+
+    }
+
+
 
 }

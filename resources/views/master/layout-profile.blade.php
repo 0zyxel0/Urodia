@@ -45,12 +45,12 @@
                                 <li>
                                     <a href="/urodia/public/dashboard"><i class="fa fa-home"></i> Home </a>
                                 </li>
-                                <li>
+                                <!--li>
                                     <a><i class="fa fa-desktop"></i> Schedule <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
                                         <li><a href="calendar.html">Calendar</a></li>
                                     </ul>
-                                </li>
+                                </li-->
                                 <li>
                                     <a><i class="fa fa-table"></i> Patient Records <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
@@ -58,6 +58,9 @@
                                         <li><a href="/urodia/public/viewPatientRecords">View Patient Records</a></li>
                                     </ul>
                                 </li>
+                                <li>
+                                   <a href="/urodia/public/report"><i class="fa fa-desktop"></i> Reports </a>
+                               </li>
                             </ul>
                         </div>
                     </div>

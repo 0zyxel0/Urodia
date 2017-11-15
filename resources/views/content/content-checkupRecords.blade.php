@@ -84,29 +84,10 @@
                                 </thead>
                                 <tbody>
                                 @foreach($data as $item)
-                                    <tr {{$item['id']}}>
-                                        <td>{{$item['partyid']}}</td>
-                                        <td>{{$item['givenname']}}</td>
-                                        <td>{{$item['familyName']}}</td>
-                                        <td>{{$item['middlename']}}</td>
-                                        <td>{{$item['birthday']}}</td>
-                                        <td>{{$item['age']}}</td>
-                                        <td>{{$item['address']}}</td>
-                                        <td>{{$item['email']}}</td>
-                                        <td>{{$item['obsIns']}}</td>
-                                        <td>{{$item['menopause']}}</td>
-                                        <td>{{$item['gender']}}</td>
+                                    <tr>
                                         <td>
-
-                                            <button class="edit-modal btn btn-info" id="btn_viewProfile">
-                                                <span class="glyphicon glyphicon-edit"></span> View
-                                            </button>
-                                            <button class="edit-modal btn btn-info">
-                                                <span class="glyphicon glyphicon-edit"></span> Edit
-                                            </button>
-                                            <button class="delete-modal btn btn-danger">
-                                                <span class="glyphicon glyphicon-trash"></span> Delete
-                                            </button></td>
+                                            {{$item['partyid']}}
+                                        </td>
                                     </tr>
                                 @endforeach
 

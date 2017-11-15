@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Patient;
+use App\checkupRecord;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests;
@@ -27,6 +28,11 @@ class SiteController extends Controller
        return view('content.content-profile');
     }
 
+    public function reports()
+    {
+        return view('content.content-reports');
+    }
+
 
   public function test()
     {
@@ -36,8 +42,7 @@ class SiteController extends Controller
     public function viewPatientRecords()
     {
         $data = Patient::all ();
-
-
+       // dd($data);
        return view('content.content-patientRecords')->withData ( $data );
     }
 
@@ -61,6 +66,13 @@ class SiteController extends Controller
         return view('content.content-dashboard');
     }
 
+    public function viewCheckupRecords()
+    {
+        $data2 = checkupRecord::all ();
+        dd($data2);
+
+        //return view('content.content-checkup')->withData ( $data2 );
+    }
 
 
 }
