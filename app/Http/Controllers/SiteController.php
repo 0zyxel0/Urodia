@@ -60,13 +60,7 @@ class SiteController extends Controller
     {
         return view('content.content-dashboard');
     }
-    public function newRecordDiagnosis($id){
 
-        $qry = 'SELECT * FROM patients WHERE partyid LIKE "'.$id.'"';
-        $data = DB::select($qry);
-        $convs = json_encode($data);
 
-        return view('content.content-diagnosis', [ 'data' => json_decode($convs,true) ]);
-    }
 
 }

@@ -166,6 +166,13 @@ class PatientController extends Controller
 
     }
 
+    public function addCheckupRecord($id)
+{
+    $qry = 'SELECT * FROM patients WHERE partyid LIKE "'.$id.'"';
+    $data = DB::select($qry);
+    $convs = json_encode($data);
 
+    return view('content.content-checkup', [ 'data' => json_decode($convs,true) ]);
+}
 
 }

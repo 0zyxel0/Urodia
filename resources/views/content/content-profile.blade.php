@@ -44,6 +44,8 @@
 
                             <a class="btn btn-success" href="http://localhost:8899/urodia/public/newDiagnosis/{{$data["partyid"]}}"><i class="fa fa-edit m-right-xs"></i>Add Diagnosis</a>
                             <br />
+                            <a class="btn btn-info" href="http://localhost:8899/urodia/public/checkup/{{$data["partyid"]}}"><i class="fa fa-edit m-right-xs"></i>Add Check Up Record</a>
+                            <br />
                             @endforeach
 
                         </div>
@@ -59,7 +61,7 @@
                                 <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
                                     <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Check Up Timeline</a>
                                     </li>
-                                    <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Profile</a>
+                                    <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Diagnosis Record</a>
                                     </li>
                                 </ul>
                                 <div id="myTabContent" class="tab-content">
