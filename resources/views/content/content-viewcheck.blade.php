@@ -23,19 +23,36 @@
                     <div class="x_content">
                         @foreach($data as $data)
 
-                            <div>{{$data['created_at']}}</div>
-                            <div>{{$data['complaint_summary']}}</div>
-                            <div>{{$data['complaint_details']}}</div>
-                            <div>{{$data['diagnosis_details']}}</div>
-                            <div>{{$data['treatment_details']}}</div>
 
 
 
+                            <div class="form-inline">
+                                <label for="example-date-input" class="col-2 col-form-label">Date</label>
+                                <div class="col-10">
+                                    <input class="form-control" type="text" value="{{$data['created_at']}}" id="example-date-input" disabled>
+                                </div>
+                            </div>
 
 
-                        @endforeach
+                            <div class="form-group">
+                                <label for="exampleTextarea">Complaint Summary</label>
+                                <textarea class="form-control" id="complaint_summary" name="complaint_summary" rows="4" disabled>{{$data['complaint_summary']}}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleTextarea">Complaint Details</label>
+                                <textarea class="form-control" id="complaint_details"  name="complaint_details" rows="4" disabled>{{$data['complaint_details']}}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleTextarea">Diagnosis</label>
+                                <textarea class="form-control" id="diagnosis_details" name="diagnosis_details" rows="4" disabled>{{$data['diagnosis_details']}}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleTextarea">Treatment Given</label>
+                                <textarea class="form-control" id="treatment_gvn" name="treatment_gvn" rows="4" disabled>{{$data['treatment_details']}}</textarea>
+                            </div>
 
-
+                            <input type="submit" value="Save" name="submit">
+                            @endforeach
             </div>
         </div>
     </div>

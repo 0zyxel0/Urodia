@@ -24,7 +24,7 @@ Route::get('newDiagnosis/{id}', ['uses'=>'PatientController@newRecordDiagnosis']
 Route::get('/profile/{id}','PatientController@viewProfile');
 Route::get('/checkup/{id}',['uses'=>'PatientController@addCheckupRecord']);
 Route::get('/viewCheckupRecord/{id}', ['uses'=>'PatientController@viewCheckupRecord']);
-Route::get('testTable/{id}', ['uses'=>'PatientController@testTable']);
+Route::get('/testTable/{id}', ['uses'=>'PatientController@testTable']);
 Route::post('store','PatientController@store');
 Route::post('storeCheckup','PatientController@storeCheckupRecord');
 Route::post('saveDiagnosis','PatientController@saveDiagnosis');

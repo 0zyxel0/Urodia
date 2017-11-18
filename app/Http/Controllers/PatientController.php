@@ -128,18 +128,15 @@ class PatientController extends Controller
 
     public function viewProfile($id)    {
 
-            $qry = 'SELECT * FROM patients WHERE partyid LIKE "'.$id.'"';
-            $data = DB::select($qry);
-            $convs = json_encode($data);
-      //  dd($convs);
+        $q = Patient::where('partyid', $id)->get();
+        $convs = json_encode($q);
 
 
-        $qry2 = 'SELECT * FROM checkup_records WHERE partyid LIKE "'.$id.'" ORDER BY created_at';
-        $data2 = DB::select($qry2);
-        //$data2 = checkupRecord::all ();
-        //$col = collect([$data2]);
-        $convs2 = json_encode($data2);
-        //dd($col);
+        $q2 = checkupRecord::where('partyid',$id)
+            ->orderBy('created_at', 'desc')
+            ->get();
+        $convs2 = json_encode($q2);
+
 
         return view('content.content-profile',[ 'data' => json_decode($convs,true),'data2' => json_decode($convs2,true)  ]);
 
@@ -148,20 +145,29 @@ class PatientController extends Controller
 
     public function viewCheckupRecord($id){
 
-        $qry = 'SELECT * FROM checkup_records WHERE checkid LIKE "'.$id.'"';
-        $data = DB::select($qry);
-        $convs = json_encode($data);
 
-        return view('content.content-viewcheck',['data'=>json_decode($convs,true)]);
+
+        $q = checkupRecord::where('checkid', $id)
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        $convs = json_encode($q);
+
+
+
+       return view('content.content-viewcheck',['data'=>json_decode($convs,true)]);
     }
 
 
 
     public function newRecordDiagnosis($id){
 
-        $qry = 'SELECT * FROM patients WHERE partyid LIKE "'.$id.'"';
-        $data = DB::select($qry);
-        $convs = json_encode($data);
+
+        $q = Patient::where('partyid', $id)
+            ->get();
+
+
+        $convs = json_encode($q);
 
         return view('content.content-diagnosis', [ 'data' => json_decode($convs,true) ]);
     }
@@ -188,13 +194,25 @@ class PatientController extends Controller
 
     public function addCheckupRecord($id)
 {
-    $qry = 'SELECT * FROM patients WHERE partyid LIKE "'.$id.'"';
-    $data = DB::select($qry);
-    $convs = json_encode($data);
+
+    $q = Patient::where('partyid', $id)
+        ->get();
+    $convs = json_encode($q);
 
 
     return view('content.content-checkup', [ 'data' => json_decode($convs,true) ]);
 }
+//TESTING ELOQUENT
+    public function testTable($id)
+    {
+
+       $data = checkupRecord::all ();
+        $filtered = $data->where('partyid',$id);
+        //dd($data);
+        dd($filtered);
+
+
+    }
 
     public function storeCheckupRecord(Request $request)
     {
@@ -216,8 +234,8 @@ class PatientController extends Controller
             'partyid'=>$partyid,
             'complaint_summary' =>$complaint_summary,
             'complaint_details'=>$complaint_details,
-            'diagnosis_details'=>$treatment_details,
-            'treatment_details'=>$diagnosis_details,
+            'diagnosis_details'=>$diagnosis_details,
+            'treatment_details'=>$treatment_details,
             'created_at'=>$created_at,
             'updated_at'=>$updated_at
         );
