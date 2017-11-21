@@ -65,7 +65,7 @@
 
                                 </li>
                             </ul>
-                            <a class="btn btn-success" href="/urodia/public/newDiagnosis/{{$id['partyid']}}"><i class="fa fa-edit m-right-xs"></i>Add Diagnosis</a>
+
                             <br />
                             <a class="btn btn-info" href="/urodia/public/checkup/{{$id["partyid"]}}"><i class="fa fa-edit m-right-xs"></i>Add Check Up Record</a>
                             <br />
@@ -82,9 +82,6 @@
                                 <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
                                     <li role="presentation" class="active">
                                         <a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Check Up Timeline</a>
-                                    </li>
-                                    <li role="presentation" class="">
-                                        <a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Diagnosis Record</a>
                                     </li>
                                 </ul>
                                 <div id="myTabContent" class="tab-content">
@@ -126,12 +123,6 @@
 
                                         </table>
                                         <!-- end user projects -->
-                                    </div>
-                                    <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
-                                        <p>
-                                            xxFood truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui
-                                            photo booth letterpress, commodo enim craft beer mlkshk
-                                        </p>
                                     </div>
                                 </div>
                             </div>

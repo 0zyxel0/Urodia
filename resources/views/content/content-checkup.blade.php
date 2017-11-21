@@ -21,19 +21,31 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_content">
-                        <form action="/urodia/public/storeCheckup" method="post">
+                        @foreach($data as $data)
 
-                            <div class="form-inline">
-                                <label for="example-date-input" class="col-2 col-form-label">Date</label>
-                                <div class="col-10">
-                                    <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
+
+
+                                <div class="container">
+                                    <div style="float: left; width:50%;">
+                                        <a class="btn btn-success" href="/urodia/public/newDiagnosis/{{$data['partyid']}}"><i class="fa fa-edit m-right-xs"></i>Diagnosis Checklist</a>
+                                    </div>
+                                    <div style="float: right; width:50%; text-align: right;" >
+                                        <input type="date"  id="example-date-input" disabled>
+                                    </div>
                                 </div>
-                            </div>
+<br/>
+
+
+
+
+                            <form action="/urodia/public/storeCheckup" method="post">
+
 
 
                             <div class="form-group">
-                                @foreach($data as $data)
+
                                     <input class="form-control" type="text" value="{{$data["partyid"]}}" id="partyid" name="partyid" style="display: none;">
+
                                 @endforeach
                                 <label for="exampleTextarea">Complaint Summary</label>
                                 <textarea class="form-control" id="complaint_summary" name="complaint_summary" rows="1"></textarea>
