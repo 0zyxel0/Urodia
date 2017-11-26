@@ -72,23 +72,19 @@
                                 <thead>
                                 <tr>
 
-                                    <th>Category ID</th>
-                                    <th>Category Name</th>
-                                    <th>Category Order</th>
-                                    <th>Category Order</th>
-                                    <th>Category Order</th>
-                                    <th>Create At</th>
+                                    <th>Parent Category</th>
+                                    <th>Child Category</th>
+                                    <th>Child Category Order</th>
+
                                 </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($data2 as $d)
                                     <tr>
-                                        <td>{{$d['childCategoryid']}}</td>
-                                        <td>{{$d['parentCategory']}}</td>
-                                        <td>{{$d['categoryname']}}</td>
-                                        <td>{{$d['categoryOrder']}}</td>
-                                        <td>{{$d['created_at']}}</td>
-                                        <td>{{$d['updated_at']}}</td>
+                                        <td>{{$d['Parent_Category']}}</td>
+                                        <td>{{$d['Child_Category']}}</td>
+                                        <td>{{$d['Order']}}</td>
+
                                     </tr>
 
                                 @endforeach

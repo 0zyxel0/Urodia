@@ -27,6 +27,7 @@ Route::get('/viewCheckupRecord/{id}', ['uses'=>'PatientController@viewCheckupRec
 Route::get('/testTable/{id}', ['uses'=>'PatientController@testTable']);
 Route::get('addCategoryList',['uses'=>'SiteController@addCategoryListItem']);
 Route::get('addChildItem',['uses'=>'SiteController@addChildItem']);
+Route::get('viewCheckList',['uses'=>'SiteController@viewCheckList']);
 
 Route::post('saveChildCat','SiteController@saveChildCategory');
 Route::post('saveCat','SiteController@saveNewCategory');

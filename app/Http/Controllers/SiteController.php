@@ -91,13 +91,17 @@ class SiteController extends Controller
         $items = listCategory::all(['categoryid', 'categoryname']);
         $convs = json_encode($items);
 
-       
-        $item2 = listChildCategory::join('list_Categories', 'list_Child_Categories.parentCategory' ,'=', 'list_Categories.categoryid')->get();
 
+       // $item2 = listChildCategory::join('list_Categories', 'list_Child_Categories.parentCategory' ,'=', 'list_Categories.categoryid')->get();
+        $item2 = DB::table('list_Categories')
+            ->select('list_Categories.categoryname as Parent_Category', 'list_Child_Categories.categoryname as Child_Category','list_Child_Categories.categoryOrder as Order' )
+            ->join('list_Child_Categories', 'list_Categories.categoryid', '=', 'list_Child_Categories.parentCategory')
+            ->orderby('list_Child_Categories.categoryOrder')
+            ->get();
         $convs2 = json_encode($item2);
-dd($convs2 , $convs);
+//dd($convs2);
 
-        //return view('content.content-childList', ['data'=>json_decode($convs,true),'data2'=>json_decode($convs2,true)]);
+        return view('content.content-childList', ['data'=>json_decode($convs,true),'data2'=>json_decode($convs2,true)]);
 
     }
 
@@ -146,6 +150,13 @@ dd($convs2 , $convs);
         DB::table('list_child_categories')->insert($data);
         return redirect('addChildItem');
 
+    }
+
+
+
+
+    public function viewCheckList(){
+        return view('content.content-viewCheckList');
     }
 
 }
