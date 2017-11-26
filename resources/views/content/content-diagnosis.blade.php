@@ -36,23 +36,79 @@
             $('#checkbox_35').change(function () {
                 $('.children-8').toggle();
             });
-            $('#checkbox_').change(function () {
-                $('.children-').toggle();
+            $('#checkbox_38').change(function () {
+                $('.children-9').toggle();
             });
-            $('#checkbox_').change(function () {
-                $('.children-').toggle();
+            $('#checkbox_48').change(function () {
+                $('.children-10').toggle();
             });
-            $('#checkbox_').change(function () {
-                $('.children-').toggle();
+            $('#checkbox_58').change(function () {
+                $('.children-11').toggle();
             });
-            $('#checkbox_').change(function () {
-                $('.children-').toggle();
+            $('#checkbox_59').change(function () {
+                $('.children-12').toggle();
             });
-            $('#checkbox_').change(function () {
-                $('.children-').toggle();
+            $('#checkbox_62').change(function () {
+                $('.children-13').toggle();
             });
-            $('#checkbox_').change(function () {
-                $('.children-').toggle();
+            $('#checkbox_65').change(function () {
+                $('.children-14').toggle();
+            });
+            $('#checkbox_67').change(function () {
+                $('.children-15').toggle();
+            });
+            $('#checkbox_69').change(function () {
+                $('.children-16').toggle();
+            });
+            $('#checkbox_74').change(function () {
+                $('.children-17').toggle();
+            });
+            $('#checkbox_76').change(function () {
+                $('.children-18').toggle();
+            });
+            $('#checkbox_81').change(function () {
+                $('.children-19').toggle();
+            });
+            $('#checkbox_88').change(function () {
+                $('.children-20').toggle();
+            });
+            $('#checkbox_90').change(function () {
+                $('.children-21').toggle();
+            });
+            $('#checkbox_93').change(function () {
+                $('.children-22').toggle();
+            });
+
+            $('#checkbox_96').change(function () {
+                $('.children-23').toggle();
+            });
+
+            $('#checkbox_98').change(function () {
+                $('.children-24').toggle();
+            });
+
+            $('#checkbox_100').change(function () {
+                $('.children-25').toggle();
+            });
+
+            $('#checkbox_105').change(function () {
+                $('.children-26').toggle();
+            });
+
+            $('#checkbox_111').change(function () {
+                $('.children-27').toggle();
+            });
+
+            $('#checkbox_114').change(function () {
+                $('.children-28').toggle();
+            });
+
+            $('#checkbox_119').change(function () {
+                $('.children-29').toggle();
+            });
+
+            $('#checkbox_126').change(function () {
+                $('.children-30').toggle();
             });
             $('#checkbox_').change(function () {
                 $('.children-').toggle();
@@ -297,7 +353,7 @@
                                                         <input type="checkbox" name="checkbox_38" id="checkbox_38" />
                                                         <label for="checkbox_38">e.5. recto-vaginal</label>
                                                     </li>
-                                                    <ul style="list-style: none; display:none;">
+                                                    <ul style="list-style: none; display:none;" class="children-9">
                                                         <li>
                                                             <input type="checkbox" name="checkbox_39" id="checkbox_39" />
                                                             <label for="checkbox_39">RVS 57300 Transvaginal/TransanalRepair</label>
@@ -351,7 +407,7 @@
                                             <div class="funkyradio-success">
                                                 <input type="checkbox" name="checkbox_48" id="checkbox_48" />
                                                <label for="checkbox_48">Endocrine abnormality –DM,D. Insipidus</label>
-                                                <ul style="list-style: none; display:none;">
+                                                <ul style="list-style: none; display:none;" class="children-10">
                                                     <li>
                                                         <input type="checkbox" name="checkbox_49" id="checkbox_49" />
                                                        <label for="checkbox_49">Restricted Mobility</label>
@@ -416,12 +472,13 @@
                                                 <input type="checkbox" name="checkbox_58" id="checkbox_58" />
                                                 <label for="checkbox_58">Voiding Dysfunction</label>
                                             </div>
-                                            <ul style="list-style: none; display:none;">
+                                            <div class="funkyradio-success">
+                                            <ul style="list-style: none; display:none;" class="children-11">
                                                 <li>
                                                     <input type="checkbox" name="checkbox_59" id="checkbox_59" />
                                                     <label for="checkbox_59">Anterior compartment</label>
                                                 </li>
-                                                <ul style="list-style: none; display:none;">
+                                                <ul style="list-style: none; display:none;" class="children-12">
                                                     <li>
                                                         <input type="checkbox" name="checkbox_60" id="checkbox_60" />
                                                         <label for="checkbox_60">RVS 57200 Non-obstetrical Colporrhaphy</label>
@@ -431,10 +488,11 @@
                                                         <label for="checkbox_61">RVS 57240 Anterior Repair & Kelly Plication</label>
                                                     </li>
                                                 </ul>
+
                                                 <li>
                                                     <input type="checkbox" name="checkbox_62" id="checkbox_62" />
                                                     <label for="checkbox_62">Posterior compartment</label>
-                                                    <ul style="list-style: none; display:none;">
+                                                    <ul style="list-style: none; display:none;" class="children-13">
                                                         <li>
                                                             <input type="checkbox" name="checkbox_63" id="checkbox_63" />
                                                             <label for="checkbox_63">RVS 57210 Non-obstetrical Colpoperineorrphaphy</label>
@@ -448,7 +506,7 @@
                                                 <li>
                                                     <input type="checkbox" name="checkbox_65" id="checkbox_65" />
                                                     <label for="checkbox_65">Anterior and Posterior Compartment Prolapse</label>
-                                                    <ul style="list-style: none; display:none;">
+                                                    <ul style="list-style: none; display:none;" class="children-14">
                                                         <li>
                                                             <input type="checkbox" name="checkbox_66" id="checkbox_66" />
                                                             <label for="checkbox_66">RVS 57260 Combined AP Colporrhaphy</label>
@@ -458,7 +516,7 @@
                                                 <li>
                                                     <input type="checkbox" name="checkbox_67" id="checkbox_67" />
                                                     <label for="checkbox_67">Anterior and Posterior Compartment Prolapse with Enterocele</label>
-                                                    <ul style="list-style: none; display:none;">
+                                                    <ul style="list-style: none; display:none;" class="children-15">
                                                         <li>
                                                             <input type="checkbox" name="checkbox_68" id="checkbox_68" />
                                                             <label for="checkbox_68">RVS 57265 Combined AP Colporrhaphy with Enterocele Repair</label>
@@ -468,7 +526,7 @@
                                                 <li>
                                                     <input type="checkbox" name="checkbox_69" id="checkbox_69" />
                                                     <label for="checkbox_69">Apical or vault</label>
-                                                    <ul style="list-style: none; display:none;">
+                                                    <ul style="list-style: none; display:none;" class="children-16">
                                                         <li>
                                                             <input type="checkbox" name="checkbox_70" id="checkbox_70" />
                                                             <label for="checkbox_70">RVS 57282SSLF Uterosacral Ligament Fixation</label>
@@ -490,7 +548,7 @@
                                                 <li>
                                                     <input type="checkbox" name="checkbox_74" id="checkbox_74" />
                                                     <label for="checkbox_74">Enterocele</label>
-                                                    <ul style="list-style: none; display:none;">
+                                                    <ul style="list-style: none; display:none;" class="children-17">
                                                         <li>
                                                             <input type="checkbox" name="checkbox_75" id="checkbox_75" />
                                                             <label for="checkbox_75">RVS 57268 Vaginal repair Abdominal Repair (Moschowitx, Halban, Uterosacral Plication)</label>
@@ -500,7 +558,7 @@
                                                 <li>
                                                     <input type="checkbox" name="checkbox_76" id="checkbox_76" />
                                                     <label for="checkbox_76">Utero-vaginal Prolapse</label>
-                                                    <ul style="list-style: none; display:none;">
+                                                    <ul style="list-style: none; display:none;" class="children-18">
                                                         <li>
                                                             <input type="checkbox" name="checkbox_77" id="checkbox_77" />
                                                             <label for="checkbox_77">RVS 57280 Vaginal hysterectomy</label>
@@ -522,6 +580,7 @@
                                                     </div>
                                                 </li>
                                             </ul>
+
                                         </div>
                                     </div>
                                 </div>
@@ -536,7 +595,7 @@
                                             <div class="funkyradio-success">
                                                 <input type="checkbox" name="checkbox_81" id="checkbox_81" />
                                                 <label for="checkbox_81">IC</label>
-                                                <ul style="list-style: none; display:none;">
+                                                <ul style="list-style: none; display:none;" class="children-19">
                                                     <li>
                                                         <div class="funkyradio-success">
                                                             <input type="checkbox" name="checkbox_82" id="checkbox_82" />
@@ -579,7 +638,7 @@
                                             <div class="funkyradio-success">
                                                 <input type="checkbox" name="checkbox_88" id="checkbox_88" />
                                                 <label for="checkbox_88">Diverticulum</label>
-                                                <ul style="list-style: none; display:none;">
+                                                <ul style="list-style: none; display:none;" class="children-20">
                                                     <li>
                                                         <div class="funkyradio-success">
                                                             <input type="checkbox" name="checkbox_89" id="checkbox_89" />
@@ -590,7 +649,7 @@
                                                         <div class="funkyradio-success">
                                                             <input type="checkbox" name="checkbox_90" id="checkbox_90" />
                                                             <label for="checkbox_90">RVS 53230Excision of urethral diverticulum</label>
-                                                            <ul style="list-style: none; display:none;">
+                                                            <ul style="list-style: none; display:none;" class="children-21">
                                                                 <li>
                                                                     <div class="funkyradio-success">
                                                                         <input type="checkbox" name="checkbox_91" id="checkbox_91" />
@@ -610,7 +669,7 @@
                                                         <div class="funkyradio-success">
                                                             <input type="checkbox" name="checkbox_93" id="checkbox_93" />
                                                             <label for="checkbox_93">Prolapse</label>
-                                                            <ul style="list-style: none; display:none;">
+                                                            <ul style="list-style: none; display:none;" class="children-22">
                                                                 <li>
                                                                     <div class="funkyradio-success">
                                                                         <input type="checkbox" name="checkbox_94" id="checkbox_94" />
@@ -630,7 +689,7 @@
                                                         <div class="funkyradio-success">
                                                             <input type="checkbox" name="checkbox_96" id="checkbox_96" />
                                                             <label for="checkbox_96">Stenosis</label>
-                                                            <ul style="list-style: none; display:none;">
+                                                            <ul style="list-style: none; display:none;" class="children-23">
                                                                 <li>
                                                                     <div class="funkyradio-success">
                                                                         <input type="checkbox" name="checkbox_97" id="checkbox_97" />
@@ -644,7 +703,7 @@
                                                         <div class="funkyradio-success">
                                                             <input type="checkbox" name="checkbox_98" id="checkbox_98" />
                                                             <label for="checkbox_98">Caruncle</label>
-                                                            <ul style="list-style: none; display:none;">
+                                                            <ul style="list-style: none; display:none;" class="children-24">
                                                                 <li>
                                                                     <div class="funkyradio-success">
                                                                         <input type="checkbox" name="checkbox_99" id="checkbox_99" />
@@ -658,7 +717,7 @@
                                                         <div class="funkyradio-success">
                                                             <input type="checkbox" name="checkbox_100" id="checkbox_100" />
                                                             <label for="checkbox_100">Polyp</label>
-                                                            <ul style="list-style: none; display:none;">
+                                                            <ul style="list-style: none; display:none;" class="children-25">
                                                                 <li>
                                                                     <div class="funkyradio-success">
                                                                         <input type="checkbox" name="checkbox_101" id="checkbox_101" />
@@ -705,7 +764,7 @@
                                             <div class="funkyradio-success">
                                                 <input type="checkbox" name="checkbox_105" id="checkbox_105" />
                                                 <label for="checkbox_105">Ureteroureterostomy</label>
-                                                <ul style="list-style: none; display:none;">
+                                                <ul style="list-style: none; display:none;" class="children-26">
                                                     <li>
                                                         <div class="funkyradio-success">
                                                             <input type="checkbox" name="checkbox_106" id="checkbox_106" />
@@ -744,7 +803,7 @@
                                             <div class="funkyradio-success">
                                                 <input type="checkbox" name="checkbox_111" id="checkbox_111" />
                                                 <label for="checkbox_111">UTI</label>
-                                                <ul style="list-style: none; display:none;">
+                                                <ul style="list-style: none; display:none;" class="children-27">
                                                     <li>
                                                         <div class="funkyradio-success">
                                                             <input type="checkbox" name="checkbox_112" id="checkbox_112" />
@@ -785,7 +844,7 @@
                                             <div class="funkyradio-success">
                                                 <input type="checkbox" name="checkbox_114" id="checkbox_114" />
                                                 <label for="checkbox_114">Sexual Desire disorders</label>
-                                                <ul style="list-style: none; display:none;">
+                                                <ul style="list-style: none; display:none;" class="children-28">
                                                     <li>
                                                         <div class="funkyradio-success">
                                                             <input type="checkbox" name="checkbox_115" id="checkbox_115" />
@@ -810,7 +869,7 @@
                                                 <div class="funkyradio-success">
                                                     <input type="checkbox" name="checkbox_119" id="checkbox_119" />
                                                     <label for="checkbox_119">Sexual Pain disorders</label>
-                                                    <ul style="list-style: none; display:none;">
+                                                    <ul style="list-style: none; display:none;" class="children-29">
                                                         <li>
                                                             <div class="funkyradio-success">
                                                                 <input type="checkbox" name="checkbox_120" id="checkbox_120" />
@@ -841,7 +900,7 @@
                                                     <div class="funkyradio-success">
                                                         <input type="checkbox" name="checkbox_126" id="checkbox_126" />
                                                         <label for="checkbox_126">Benign Urogenital Neoplasms</label>
-                                                        <ul style="list-style: none; display:none;">
+                                                        <ul style="list-style: none; display:none;" class="children-30">
                                                             <li>
                                                                 <div class="funkyradio-success">
                                                                     <input type="checkbox" name="checkbox_127" id="checkbox_127" />

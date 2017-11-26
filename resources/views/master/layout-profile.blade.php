@@ -45,17 +45,20 @@
                                 <li>
                                     <a href="/urodia/public/dashboard"><i class="fa fa-home"></i> Home </a>
                                 </li>
-                                <!--li>
-                                    <a><i class="fa fa-desktop"></i> Schedule <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="calendar.html">Calendar</a></li>
-                                    </ul>
-                                </li-->
+
                                 <li>
                                     <a><i class="fa fa-table"></i> Patient Records <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
                                         <li><a href="/urodia/public/newPatient">New Patient</a></li>
                                         <li><a href="/urodia/public/viewPatientRecords">View Patient Records</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a><i class="fa fa-desktop"></i> Admin Options <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="/urodia/public/addCategoryList">Add List Category</a></li>
+                                        <li><a href="/urodia/public/addChildItem">Add Child Category</a></li>
+                                        <li><a href="/urodia/public/addCategoryList">View Check List</a></li>
                                     </ul>
                                 </li>
                                 <li>

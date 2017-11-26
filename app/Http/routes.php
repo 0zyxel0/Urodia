@@ -25,6 +25,11 @@ Route::get('/profile/{id}','PatientController@viewProfile');
 Route::get('/checkup/{id}',['uses'=>'PatientController@addCheckupRecord']);
 Route::get('/viewCheckupRecord/{id}', ['uses'=>'PatientController@viewCheckupRecord']);
 Route::get('/testTable/{id}', ['uses'=>'PatientController@testTable']);
+Route::get('addCategoryList',['uses'=>'SiteController@addCategoryListItem']);
+Route::get('addChildItem',['uses'=>'SiteController@addChildItem']);
+
+Route::post('saveChildCat','SiteController@saveChildCategory');
+Route::post('saveCat','SiteController@saveNewCategory');
 Route::post('store','PatientController@store');
 Route::post('storeCheckup','PatientController@storeCheckupRecord');
 Route::post('saveDiagnosis','PatientController@saveDiagnosis');
