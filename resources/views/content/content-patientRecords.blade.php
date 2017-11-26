@@ -1,4 +1,4 @@
-@extends('master\layout-profile')
+@extends('master.layout-profile')
 @section('content')
     <script src="{{asset('js/jquery.js')}}"></script>
     <script src="{{asset('js/datatables.js')}}"></script>
