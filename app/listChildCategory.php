@@ -15,5 +15,5 @@ class listChildCategory extends Model
     }
 
 
-    protected  $fillable = ['childCategoryid','parentCategory','categoryname','categoryOrder'];
+    protected  $fillable = ['id','childCategoryid','parentCategory','categoryname','categoryOrder'];
 }

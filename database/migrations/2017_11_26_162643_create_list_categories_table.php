@@ -14,9 +14,11 @@ class CreateListCategoriesTable extends Migration
     {
         Schema::create('list_categories', function (Blueprint $table) {
 
-            $table->uuid('categoryid')->unique();;
+            $table->increments('id');
+            $table->uuid('categoryid')->unique();
             $table->string('categoryname');
             $table->string('categoryOrder');
+            $table->boolean('isParent');
             $table->timestamps();
         });
     }

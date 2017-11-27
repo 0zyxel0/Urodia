@@ -13,6 +13,7 @@ class CreateListChildCategoriesTable extends Migration
     public function up()
     {
         Schema::create('list_child_categories', function (Blueprint $table) {
+            $table->increments('id');
             $table->uuid('childCategoryid')->unique();;
             $table->string('parentCategory');
             $table->string('categoryname');

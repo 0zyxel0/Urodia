@@ -114,11 +114,13 @@ class SiteController extends Controller
         $categoryOrder = $request->input('catGroup');
         $created_at = date('Y-m-d H:i:s');
         $updated_at = date('Y-m-d H:i:s');
+        $isParent = true;
 
         $data = array(
             'categoryid'=>$categoryid,
             'categoryname'=>$categoryname,
             'categoryOrder'=>$categoryOrder,
+            'isParent'=> $isParent,
             'created_at'=>$created_at,
             'updated_at'=>$updated_at
         );
@@ -156,7 +158,10 @@ class SiteController extends Controller
 
 
     public function viewCheckList(){
-        return view('content.content-viewCheckList');
+        $items = listCategory::all(['id','categoryid', 'categoryname']);
+        $convs = json_encode($items);
+
+        return view('content.content-viewCheckList',['parentCats'=>json_decode($convs, true)]);
     }
 
 }

@@ -31,8 +31,18 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_content">
-
-
+                      <form method="post" action="show">
+                       @foreach($parentCats as $d)
+                              <div class="funkyradio">
+                                    <div class="funkyradio-success">
+                                        <input type="checkbox" name="item_{{$d['categoryid']}}" id="item_{{$d['categoryid']}}" />
+                                        <label for="item_{{$d['categoryid']}}">{{$d['categoryname']}}</label>
+                                    </div>
+                              </div>
+                        @endforeach
+                           <input type="hidden" name="_token" value="{{csrf_token()}}">
+                          <input type="submit"/>
+                      </form>
 
                         </div>
                     </div>
