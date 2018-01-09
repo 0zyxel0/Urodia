@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateListChildCategoriesTable extends Migration
+class CreateCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,16 +12,13 @@ class CreateListChildCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('list_child_categories', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->increments('id');
-            $table->uuid('childCategoryid')->unique();;
-            $table->string('parentCategoryid');
-            $table->string('categoryname');
-            $table->string('categoryOrder');
+            $table->string('title');
+            $table->integer('parent_id');
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *
@@ -29,6 +26,6 @@ class CreateListChildCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('list_child_categories');
+        Schema::drop('categories');
     }
 }

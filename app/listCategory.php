@@ -15,7 +15,12 @@ class listCategory extends Model
     }
 
 
-    protected  $fillable = ['id','categoryid','categoryname','categoryOrder'];
+    protected  $fillable = ['categoryid','categoryname','categoryOrder'];
 
 
+
+    public function connectChild(){
+        return $this->hasMany('App\listChildCategory','parentCategoryid','categoryid');
+
+    }
 }

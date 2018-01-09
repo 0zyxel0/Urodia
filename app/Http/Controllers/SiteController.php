@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\category;
 use App\listCategory;
 use App\listChildCategory;
 use Faker\Provider\Uuid;
@@ -22,14 +22,14 @@ class SiteController extends Controller
      */
 
 
-   public function dashboard()
+    public function dashboard()
     {
-       return view('content.content-dashboard');
+        return view('content.content-dashboard');
     }
 
-  public function profile()
+    public function profile()
     {
-       return view('content.content-profile');
+        return view('content.content-profile');
     }
 
     public function reports()
@@ -38,16 +38,16 @@ class SiteController extends Controller
     }
 
 
-  public function test()
+    public function test()
     {
-       return view('content.test');
+        return view('content.test');
     }
 
     public function viewPatientRecords()
     {
         $data = Patient::all ();
-       // dd($data);
-       return view('content.content-patientRecords')->withData ( $data );
+        // dd($data);
+        return view('content.content-patientRecords')->withData ( $data );
     }
 
     public function addPatientRecords()
@@ -55,7 +55,7 @@ class SiteController extends Controller
         return view('content.content-newRecord');
     }
 
-  public function __construct()
+    public function __construct()
     {
         $this->middleware('auth');
     }
@@ -92,14 +92,14 @@ class SiteController extends Controller
         $convs = json_encode($items);
 
 
-       // $item2 = listChildCategory::join('list_Categories', 'list_Child_Categories.parentCategory' ,'=', 'list_Categories.categoryid')->get();
-        $item2 = DB::table('list_Categories')
-            ->select('list_Categories.categoryname as Parent_Category', 'list_Child_Categories.categoryname as Child_Category','list_Child_Categories.categoryOrder as Order' )
-            ->join('list_Child_Categories', 'list_Categories.categoryid', '=', 'list_Child_Categories.parentCategory')
-            ->orderby('list_Child_Categories.categoryOrder')
+        // $item2 = listChildCategory::join('list_categories', 'list_Child_Categories.parentCategory' ,'=', 'list_Categories.categoryid')->get();
+        $item2 = DB::table('list_categories')
+            ->select('list_categories.categoryname as Parent_Category', 'list_child_categories.categoryname as Child_Category','list_child_categories.categoryOrder as Order' )
+            ->join('list_child_categories', 'list_categories.categoryid', '=', 'list_child_categories.parentCategoryid')
+            ->orderby('list_child_categories.categoryOrder')
             ->get();
         $convs2 = json_encode($item2);
-//dd($convs2);
+        //dd($convs2);
 
         return view('content.content-childList', ['data'=>json_decode($convs,true),'data2'=>json_decode($convs2,true)]);
 
@@ -127,7 +127,7 @@ class SiteController extends Controller
 
         DB::table('list_categories')->insert($data);
         return redirect('addCategoryList');
-       
+
     }
 
 
@@ -142,7 +142,7 @@ class SiteController extends Controller
 
         $data = array(
             'childCategoryid'=>$childCategoryid,
-            'parentCategory'=>$parentCategory,
+            'parentCategoryid'=>$parentCategory,
             'categoryname'=>$categoryname,
             'categoryOrder'=>$categoryOrder,
             'created_at'=>$created_at,
@@ -158,10 +158,53 @@ class SiteController extends Controller
 
 
     public function viewCheckList(){
-        $items = listCategory::all(['id','categoryid', 'categoryname']);
+        $items = DB::table('list_categories')
+            ->select('list_categories.categoryname as Parent_Category','list_categories.categoryid as pid', 'list_child_categories.categoryname as Child_Category','list_child_categories.childCategoryid as cid','list_child_categories.categoryOrder as ChildOrder','list_categories.categoryOrder as ParentOrder' )
+            ->join('list_child_categories', 'list_categories.categoryid', '=', 'list_child_categories.parentCategoryid')
+            ->orderby('list_categories.categoryOrder')
+            ->get();
+
+
+        // dd( $items2 );
         $convs = json_encode($items);
 
+
+
+        //
         return view('content.content-viewCheckList',['parentCats'=>json_decode($convs, true)]);
+    }
+
+    public function manageCategory()
+    {
+        $categories = category::where('parent_id', '=', 0)->get();
+
+        $allCategories = category::pluck('title','id')->all();
+
+
+        return view('content.categoryTreeView',compact('categories','allCategories'));
+
+
+        // dd($categories,$allCategories);
+        //return view('content.categoryTreeView',['data'=>json_decode($convs,true)]);
+    }
+
+
+    public function addCategory(Request $request)
+    {
+        $parentCategory = $request->input('parentCat');
+        $categoryname = $request->input('catName');
+        $created_at = date('Y-m-d H:i:s');
+        $updated_at = date('Y-m-d H:i:s');
+
+        $data = array(
+            'parent_id'=>$parentCategory,
+            'title'=>$categoryname,
+            'created_at'=>$created_at,
+            'updated_at'=>$updated_at
+        );
+        DB::table('categories')->insert($data);
+
+        return back()->with('success', 'New Category added successfully.');
     }
 
 }

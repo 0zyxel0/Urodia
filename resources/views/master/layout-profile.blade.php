@@ -58,7 +58,7 @@
                                     <ul class="nav child_menu">
                                         <li><a href="/urodia/public/addCategoryList">Add List Category</a></li>
                                         <li><a href="/urodia/public/addChildItem">Add Child Category</a></li>
-                                        <li><a href="/urodia/public/viewCheckList">View Check List</a></li>
+                                        <li><a href="/urodia/public/categoryView">View Check List</a></li>
                                     </ul>
                                 </li>
                                 <li>

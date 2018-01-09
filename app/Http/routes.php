@@ -38,4 +38,7 @@ Route::post('show','PatientController@show');
 
 
 
+//test
 
+Route::get('categoryView',['uses'=>'SiteController@manageCategory']);
+Route::post('addCategory',['uses'=>'SiteController@addCategory']);

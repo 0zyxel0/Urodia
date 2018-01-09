@@ -31,41 +31,53 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_content">
-                      <form method="post" action="show">
-                       @foreach($parentCats as $d)
-                              <div class="funkyradio">
-                                    <div class="funkyradio-success">
-                                        <input type="checkbox" name="item_{{$d['categoryid']}}" id="item_{{$d['categoryid']}}" />
-                                        <label for="item_{{$d['categoryid']}}">{{$d['categoryname']}}</label>
-                                    </div>
-                              </div>
-                        @endforeach
-                           <input type="hidden" name="_token" value="{{csrf_token()}}">
-                          <input type="submit"/>
-                      </form>
+                        <form method="post" action="show">
+                            <div class="funkyradio">
+                                <ul>
+                                    @foreach($parentCats as $category)
 
-                        </div>
+                                        <li>
+                                            <div class="funkyradio">
+                                                <div class="funkyradio-success">
+                                                    <input type="checkbox" name="item_{{ $category['pid']}}" id="item_{{ $category['pid']}}" />
+                                                    <label for="item_{{ $category['pid']}}"> {{ $category['Parent_Category']}}</label>
+                                                </div>
+                                                @if(count($category['Child_Category']))
+                                                    @include('content.content-manageChild')
+                                                @endif
+                                            </div>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+
+
+                            <input type="hidden" name="_token" value="{{csrf_token()}}">
+                            <input type="submit"/>
+                        </form>
+
                     </div>
                 </div>
-
-
             </div>
 
 
+        </div>
 
-            <script src="{{ asset('js/bootstrap.js') }}"></script>
-            <script src="{{ asset('js/custom.js') }}"></script>
-            <script src="{{ asset('js/jquery.mCustomScrollbar.js') }}"></script>
-            <script src="{{ asset('js/parsley.js') }}"></script>
-            <script type="text/javascript">
-                $(function () {
-                    $('#demo-form').parsley().on('field:validated', function () {
-                        var ok = $('.parsley-error').length === 0;
 
-                    })
-                        .on('form:submit', function () {
-                            alert('form complete');
-                        });
-                });
-            </script>
+
+        <script src="{{ asset('js/bootstrap.js') }}"></script>
+        <script src="{{ asset('js/custom.js') }}"></script>
+        <script src="{{ asset('js/jquery.mCustomScrollbar.js') }}"></script>
+        <script src="{{ asset('js/parsley.js') }}"></script>
+        <script type="text/javascript">
+            $(function () {
+                $('#demo-form').parsley().on('field:validated', function () {
+                    var ok = $('.parsley-error').length === 0;
+
+                })
+                    .on('form:submit', function () {
+                        alert('form complete');
+                    });
+            });
+        </script>
 @stop
