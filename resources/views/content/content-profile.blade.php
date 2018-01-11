@@ -4,7 +4,7 @@
     <script src="{{asset('js/datatables.js')}}"></script>
     <script>
         $(document).ready(function () {
-
+              
             var table = $('#dataTables').DataTable({
                 "searching": false, "paging": false,
                 "columnDefs": [
@@ -16,10 +16,22 @@
                 ]
             });
 
+  var table2 = $('#dataTables2').DataTable();
+
             $('#dataTables tbody').on('click', '#btn_viewRecord', function () {
 
                 var data = table.row($(this).parents('tr')).data();
                 window.location.href = '/urodia/public/viewCheckupRecord/' + data[1];
+
+
+
+            });
+            
+            $('#dataTables2 tbody').on('click', '#btn_viewRecord2', function () {
+
+                var data2 = table2.row($(this).parents('tr')).data();
+               // alert(data);
+                window.location.href = '/urodia/public/showdiagnosislist/' + data2[0];
 
 
 
@@ -50,7 +62,7 @@
                             <div class="profile_img">
                                 <div id="crop-avatar">
                                     <!-- Current avatar -->
-                                    <img class="img-responsive avatar-view" src="http://localhost:8899/urodia/public/images/picture.jpg" alt="Avatar" title="Change the avatar">
+                                    <img class="img-responsive avatar-view" src="https://localhost:8899/urodia/public/images/picture.jpg" alt="Avatar" title="Change the avatar">
                                 </div>
                             </div>
                             <h3>
@@ -82,6 +94,9 @@
                                 <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
                                     <li role="presentation" class="active">
                                         <a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Check Up Timeline</a>
+                                    </li>
+                                    <li>
+                                         <a href="#tab_content2" id="diag-tab" role="tab" data-toggle="tab" aria-expanded="true">Diagnosis Timeline</a>
                                     </li>
                                 </ul>
                                 <div id="myTabContent" class="tab-content">
@@ -116,8 +131,46 @@
                                                         <button class="edit-modal btn btn-info">
                                                             <span class="glyphicon glyphicon-edit"></span> Edit
                                                         </button>
+                                                        </td>
                                                 </tr>
                                             @endforeach
+
+                                            </tbody>
+
+                                        </table>
+                                        <!-- end user projects -->
+                                    </div>
+                                    
+                                    
+                                    
+                                    
+                                    
+                                     <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="diag-tab">
+                                        <!-- start user projects -->
+                                      <table width="100%" class="table table-striped table-bordered table-hover no-footer dtr-inline" id="dataTables2" role="grid" aria-describedby="dataTables-example_info" style="width: 100%;">
+                                            <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Check Up Date</th>
+                                                <th>Options</th>
+
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                                  @foreach($data3 as $q3)
+                                                  <tr>
+                                                      <td>{{$q3['id']}}</td>
+                                                      <td>{{$q3['created_at']}}</td>
+                                                                    <td>
+                                                        <button class="edit-modal btn btn-info" id="btn_viewRecord2">
+                                                            <span class="glyphicon glyphicon-edit"></span> View
+                                                        </button>
+                                                        <button class="edit-modal btn btn-info">
+                                                            <span class="glyphicon glyphicon-edit"></span> Edit
+                                                        </button>
+                                                        </td>
+                                                  </tr>  
+                                                  @endforeach
 
                                             </tbody>
 
@@ -130,6 +183,8 @@
                     </div>
                 </div>
             </div>
+            
+            
         </div>
     </div>
     <script src="{{ asset('js/bootstrap.js') }}"></script>

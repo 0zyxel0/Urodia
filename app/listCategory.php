@@ -21,6 +21,6 @@ class listCategory extends Model
 
     public function connectChild(){
         return $this->hasMany('App\listChildCategory','parentCategoryid','categoryid');
-
+    
     }
 }

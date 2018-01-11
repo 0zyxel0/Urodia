@@ -28,17 +28,24 @@ Route::get('/testTable/{id}', ['uses'=>'PatientController@testTable']);
 Route::get('addCategoryList',['uses'=>'SiteController@addCategoryListItem']);
 Route::get('addChildItem',['uses'=>'SiteController@addChildItem']);
 Route::get('viewCheckList',['uses'=>'SiteController@viewCheckList']);
+Route::get('showdiagnosislist/{id}',['uses'=>"PatientController@displayDiagnostic"]);
+Route::get('showtally',['uses'=>"PatientController@getdiagnosistally"]);
 
+
+Route::post('newDiagnosis/{id}', ['uses'=>'PatientController@saveChecklistData']);
 Route::post('saveChildCat','SiteController@saveChildCategory');
 Route::post('saveCat','SiteController@saveNewCategory');
 Route::post('store','PatientController@store');
 Route::post('storeCheckup','PatientController@storeCheckupRecord');
-Route::post('saveDiagnosis','PatientController@saveDiagnosis');
+//Route::post('saveDiagnosis','PatientController@saveDiagnosis');
 Route::post('show','PatientController@show');
 
 
 
-//test
 
-Route::get('categoryView',['uses'=>'SiteController@manageCategory']);
+
+Route::get('categorylists',['uses'=>'SiteController@getCategoryItems']);
+Route::get('categorytree',['uses'=>'SiteController@manageCategory']);
+
+Route::post('categorylists',['uses'=>'PatientController@saveChecklistData']);
 Route::post('addCategory',['uses'=>'SiteController@addCategory']);

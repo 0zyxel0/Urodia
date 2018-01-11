@@ -30,7 +30,7 @@
                                         <a class="btn btn-success" href="/urodia/public/newDiagnosis/{{$data['partyid']}}"><i class="fa fa-edit m-right-xs"></i>Diagnosis Checklist</a>
                                     </div>
                                     <div style="float: right; width:50%; text-align: right;" >
-                                        <input type="date"  id="example-date-input" disabled>
+                                        <input type="date"  id="example-date-input" disabled />
                                     </div>
                                 </div>
 <br/>

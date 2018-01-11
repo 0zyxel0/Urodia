@@ -1,14 +1,20 @@
 <ul style="list-style:none;">
-  @foreach($parentCats as $category)
+      
+                                          
+    @foreach($childs as $child)
+     
         <li>
-           	@if(count($category['Child_Category']))
-           	  <div class="funkyradio">
-                    <div class="funkyradio-success">
-                        <input type="checkbox" name="item_{{$category['cid']}}" id="item_{{$category['cid']}}" />
-                        <label for="item_ {{$category['cid']}}"> {{$category['Child_Category']}}</label>
-                    </div>
-               </div>
+     
+                    <input type="checkbox" name="checklist[{{ $child->id}}]" id="child_{{ $child->id}}" value="{{ $child->title }}"/>
+                    <label for="{{ $child->id}}">{{ $child->title }}</label>
+                
+            @if(count($child->childs))
+                @include('content.content-manageChild',['childs' => $child->childs])
             @endif
+    
+          
         </li>
+       
     @endforeach
+    
 </ul>

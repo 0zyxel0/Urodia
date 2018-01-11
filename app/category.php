@@ -13,8 +13,8 @@ class Category extends Model
      * Get the index name for the model.
      *
      * @return string
-     */
+    */
     public function childs() {
-        return $this->hasMany('App\Category','parent_id','id') ;
+    return $this->hasMany('App\Category','parent_id','id') ;
     }
-}
+    }

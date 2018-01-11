@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-
+use Illuminate\Support\Facades\Auth;
 use Faker\Provider\Uuid;
 use Illuminate\Http\Request;
 use App\Http\Requests;
-
+use App\ListBuilder;
 use App\Patient;
+use App\category;
 use App\checkupRecord;
 use DB;
 class PatientController extends Controller
@@ -71,7 +72,8 @@ class PatientController extends Controller
             'created_at'=>$created_at,
             'updated_at'=>$updated_at
             );
-
+       
+        
             DB::table('patients')->insert($data);
 
             $id= $partyid;
@@ -87,9 +89,28 @@ class PatientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request)
+    public function saveChecklistData(Request $request)
     {
-        return $request->all();
+        $data =  $request->except('userpartyid','_token','createdBy','submit');
+        $d = json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+        
+        $by = Auth::user()->name;
+       
+        $created_at = date('Y-m-d H:i:s');
+        $updated_at = date('Y-m-d H:i:s');
+        $id =$request->input('userpartyid');
+         $data2 = array(
+            'partyid'=>$request->input('userpartyid'),
+            'listdata'=>$d,
+            'createdBy'=>$by,
+            'created_at'=>$created_at,
+            'updated_at'=>$updated_at
+            );
+        
+       // dd($data2);
+        DB::table('list_builders')->insert($data2);
+       // echo 'success';
+       return redirect('checkup/' .$id);
     }
 
     /**
@@ -98,33 +119,7 @@ class PatientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 
     public function viewProfile($id)    {
 
@@ -136,9 +131,13 @@ class PatientController extends Controller
             ->orderBy('created_at', 'desc')
             ->get();
         $convs2 = json_encode($q2);
+        
+        
+        $q3 = ListBuilder::where('partyid',$id)
+                ->get();
 
-
-        return view('content.content-profile',[ 'data' => json_decode($convs,true),'data2' => json_decode($convs2,true)  ]);
+        $convs3 = json_encode($q3);
+        return view('content.content-profile',[ 'data' => json_decode($convs,true),'data2' => json_decode($convs2,true),'data3' =>json_decode($convs3,true)  ]);
 
     }
 
@@ -152,6 +151,9 @@ class PatientController extends Controller
             ->get();
 
         $convs = json_encode($q);
+        
+        
+        
 
 
 
@@ -163,32 +165,37 @@ class PatientController extends Controller
     public function newRecordDiagnosis($id){
 
 
-        $q = Patient::where('partyid', $id)
+       $q = Patient::where('partyid', $id)
             ->get();
 
+             $categories = category::where('parent_id', '=', 'id')->get();
+    
 
-        $convs = json_encode($q);
+        
 
-        return view('content.content-diagnosis', [ 'data' => json_decode($convs,true) ]);
+        return view('content.content-diagnosisList',compact('categories','q'));
     }
 
 
     public function saveDiagnosis(Request $request)
     {
+        $input = $request->all();
+        
+           //return Request::all();
         // Patient::create(Request::all());
-        $partyid = Uuid::uuid();
+      //  $partyid = $request->input('userpartyid');
 
 
-        $data = array(
-            'partyid'=>$partyid,
-        );
+ 
+       
 
-        DB::table('diagnosis')->insert($data);
-
-        $id= $partyid;
-
-        return redirect('profile/'.$id);
-        //return redirect('profile');
+      // DB::table('list_builders')->insert($input);
+        dd($input);
+//
+  //      $id= $partyid;
+//
+ //       return redirect('profile/'.$id);
+   //return redirect('profile');
 
     }
 
@@ -249,6 +256,59 @@ class PatientController extends Controller
 
     }
 
+    public function displayDiagnostic($id){
+     
+        //$data = ListBuilder::all('listdata');
+        //$filtered = $data->where('partyid',$id);
+        //$res = json_decode($filtered);
+        
+      $rr = ListBuilder::where('id', $id)
+        ->pluck('listdata');
+       // $convs = json_decode($rr);
+    //dd($rr);
+   //print_r($convs);
+   
+   // $conv = json_encode(json_encode($rr),true);
+     //dd(json_decode($rr[0],true));
+     $rr2 = json_decode($rr[0],true);
+   //  print_r($conv);
+ //   $r2= json_decode($conv);
+//    dd($conv);
+  //  echo $r2;
+  
+  
+  $convs = json_encode($rr2);
+/// echo json_decode($convs,true);
+//dd($convs);
+   return view('content.content-list', [ 'data' => json_decode($convs,true) ]);
+    }
+    
+    
+    
+    public function getdiagnosistally(){
+        
+          $jsonData = ListBuilder::all()->pluck('listdata');
+    
+   
+       
+           
+         $testValues = $jsonData->flatMap(function($json){ 
+             $data = collect(json_decode($json, true)['checklist']); 
+             return $data->filter(function($item) 
+             {
+                 return str_contains($item, 't'); 
+             }); 
+             
+         });
+ dd($testValues);
+$result = array_count_values($testValues->all());
 
+dd($jsonData,$result);
+            
+            
+           
+            
+    }
 
 }
+ 
