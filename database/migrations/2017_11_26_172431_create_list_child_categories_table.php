@@ -9,26 +9,26 @@ class CreateListChildCategoriesTable extends Migration
      * Run the migrations.
      *
      * @return void
-     */
+    */
     public function up()
     {
-        Schema::create('list_child_categories', function (Blueprint $table) {
-            $table->increments('id');
-            $table->uuid('childCategoryid')->unique();;
-            $table->string('parentCategoryid');
-            $table->string('categoryname');
-            $table->string('categoryOrder');
-            $table->timestamps();
-        });
+    Schema::create('list_child_categories', function (Blueprint $table) {
+    $table->increments('id');
+    $table->uuid('childCategoryid')->unique();;
+    $table->string('parentCategoryid');
+    $table->string('categoryname');
+    $table->string('categoryOrder');
+    $table->timestamps();
+    });
     }
 
     /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+    * Reverse the migrations.
+    *
+    * @return void
+    */
     public function down()
     {
-        Schema::drop('list_child_categories');
+    Schema::drop('list_child_categories');
     }
-}
+    }
