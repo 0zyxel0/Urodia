@@ -289,22 +289,23 @@ class PatientController extends Controller
         
           $jsonData = ListBuilder::all()->pluck('listdata');
     
-   
-       
+
            
          $testValues = $jsonData->flatMap(function($json){ 
-             $data = collect(json_decode($json, true)['checklist']); 
+             $data = collect(json_decode($json, true)['checklist']);
              return $data->filter(function($item) 
              {
-                 return str_contains($item, 't'); 
+
+                 $keys = ['a','b','c','d','e','f','g','h','i','j','k'];
+                 return str_contains($item, $keys);
              }); 
              
          });
- dd($testValues);
+
 $result = array_count_values($testValues->all());
 
-dd($jsonData,$result);
-            
+
+        return view('content.content-diagnostictally',  compact('result'));
             
            
             

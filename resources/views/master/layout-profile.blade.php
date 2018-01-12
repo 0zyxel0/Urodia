@@ -56,14 +56,16 @@
                                 <li>
                                     <a><i class="fa fa-desktop"></i> Admin Options <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <!--li><a href="/urodia/public/addCategoryList">Add List Category</a></li-->
-                                        <!--li><a href="/urodia/public/addChildItem">Add Child Category</a></li-->
-                                        <li><a href="/urodia/public/categorylists">View Check List</a></li>
+
                                         <li><a href="/urodia/public/categorytree">Edit List Options</a></li>
                                     </ul>
                                 </li>
                                 <li>
-                                   <a href="/urodia/public/report"><i class="fa fa-desktop"></i> Reports </a>
+                                   <a><i class="fa fa-desktop"></i> Reports </a>
+                                    <ul class="nav child_menu">
+
+                                        <li><a href="/urodia/public/showtally">Show Tally Count</a></li>
+                                    </ul>
                                </li>
                             </ul>
                         </div>
