@@ -5,7 +5,7 @@
      
         <li>
      
-                    <input type="checkbox" name="checklist[{{ $child->id}}]" id="child_{{ $child->id}}" value="{{ $child->title }}"/>
+                    <input type="checkbox" name="checklist[{{ $child->id}}]" id="child_{{ $child->id}}">
                     <label for="{{ $child->id}}">{{ $child->title }}</label>
                 
             @if(count($child->childs))

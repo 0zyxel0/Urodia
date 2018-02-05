@@ -90,7 +90,7 @@
                             <select class="form-control" id="parentCat" name="parentCat">
                                  <div class="funkyradio">
                                
-                                <option value="Parent Category" selected="selected" disabled >Parent Category</option>
+                               
                                 <option value="New Category" >New Category</option>
                                 @foreach($allCategories as $c)
                                 <option value="{{$c['id']}}">{{$c['title']}}</option>

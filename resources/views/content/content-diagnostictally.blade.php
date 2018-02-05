@@ -7,7 +7,7 @@
 
 
 <div class="right_col" role="main">
-    <div class="">
+    <div class=""> 
         <div class="page-title">
             <div class="title_left">
                 <h3>Diagnosis Findings List</h3>
@@ -28,13 +28,7 @@
             </tr>
         @endforeach
         </tr>
-
-
-
     </tbody>
-
-
-
                 </table>
 
                 <table class="table table-striped table-bordered table-hover no-footer dtr-inline"  role="grid" aria-describedby="dataTables-example_info" style="width: 20%; float: left;">
@@ -51,7 +45,7 @@
                 </table>
 </div>
 
-
+         
             </div>
         </div>
     </div>

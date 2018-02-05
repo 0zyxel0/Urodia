@@ -32,7 +32,8 @@ Route::get('showdiagnosislist/{id}',['uses'=>"PatientController@displayDiagnosti
 Route::get('showtally',['uses'=>"PatientController@getdiagnosistally"]);
 
 
-Route::post('newDiagnosis/{id}', ['uses'=>'PatientController@saveChecklistData']);
+//Route::post('newDiagnosis/{id}', ['uses'=>'PatientController@saveChecklistData']);
+Route::post('newDiagnosis/{id}', ['uses'=>'PatientController@saveCategoryListData']);
 Route::post('saveChildCat','SiteController@saveChildCategory');
 Route::post('saveCat','SiteController@saveNewCategory');
 Route::post('store','PatientController@store');
@@ -48,4 +49,7 @@ Route::get('categorylists',['uses'=>'SiteController@getCategoryItems']);
 Route::get('categorytree',['uses'=>'SiteController@manageCategory']);
 
 Route::post('categorylists',['uses'=>'PatientController@saveChecklistData']);
+
+
+
 Route::post('addCategory',['uses'=>'SiteController@addCategory']);

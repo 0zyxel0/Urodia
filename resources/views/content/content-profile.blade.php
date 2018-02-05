@@ -159,7 +159,7 @@
                                             <tbody>
                                                   @foreach($data3 as $q3)
                                                   <tr>
-                                                      <td>{{$q3['id']}}</td>
+                                                      <td>{{$q3['checklistid']}}</td>
                                                       <td>{{$q3['created_at']}}</td>
                                                                     <td>
                                                         <button class="edit-modal btn btn-info" id="btn_viewRecord2">

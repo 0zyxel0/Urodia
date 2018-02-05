@@ -11,6 +11,8 @@ use App\Patient;
 use App\category;
 use App\checkupRecord;
 use DB;
+use App\categorylist;
+use App\categorylistcontent;
 class PatientController extends Controller
 {
     /**
@@ -112,6 +114,45 @@ class PatientController extends Controller
        // echo 'success';
        return redirect('checkup/' .$id);
     }
+    
+    
+    public function saveCategoryListData(Request $request){
+    
+    
+    $checklistid = Uuid::uuid();
+    $partyid =  $request->get('userpartyid');
+    $by = Auth::user()->name;
+    $list = new categorylist();
+    
+    $content = new categorylistcontent();
+    
+    
+    $list->checklistid = $checklistid;
+    $list->partyid = $partyid;
+    $list->createdBy = $by;
+    $list->save();
+   $created_at = date('Y-m-d H:i:s');
+        $updated_at = date('Y-m-d H:i:s');
+     $checklistdata = $request->get('checklist');
+     $dataset = [];
+        foreach($checklistdata as $key => $value) {
+          $dataset[] = [
+            'checklistid' => $checklistid,
+            'categoryid' => $key,
+            'isCheck' =>$value,
+            'created_at' => $created_at,
+            'updated_at'=>$updated_at
+          ];
+        }
+ 
+     
+      
+       DB::table('categorylistcontents')->insert($dataset);
+       
+    
+    
+    
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -133,10 +174,15 @@ class PatientController extends Controller
         $convs2 = json_encode($q2);
         
         
-        $q3 = ListBuilder::where('partyid',$id)
-                ->get();
+       // $q3 = ListBuilder::where('partyid',$id)
+       //         ->get();
 
+
+            $q3 = categorylist::where('partyid',$id)
+                ->get();
+     
         $convs3 = json_encode($q3);
+         
         return view('content.content-profile',[ 'data' => json_decode($convs,true),'data2' => json_decode($convs2,true),'data3' =>json_decode($convs3,true)  ]);
 
     }
@@ -258,29 +304,24 @@ class PatientController extends Controller
 
     public function displayDiagnostic($id){
      
-        //$data = ListBuilder::all('listdata');
-        //$filtered = $data->where('partyid',$id);
-        //$res = json_decode($filtered);
-        
-      $rr = ListBuilder::where('id', $id)
-        ->pluck('listdata');
-       // $convs = json_decode($rr);
-    //dd($rr);
-   //print_r($convs);
-   
-   // $conv = json_encode(json_encode($rr),true);
-     //dd(json_decode($rr[0],true));
-     $rr2 = json_decode($rr[0],true);
-   //  print_r($conv);
- //   $r2= json_decode($conv);
-//    dd($conv);
-  //  echo $r2;
-  
-  
-  $convs = json_encode($rr2);
-/// echo json_decode($convs,true);
-//dd($convs);
-   return view('content.content-list', [ 'data' => json_decode($convs,true) ]);
+       
+     // $rr = ListBuilder::where('id', $id)
+     //   ->pluck('listdata');
+     // $rr2 = json_decode($rr[0],true);
+     // $convs = json_encode($rr2);
+
+      //return view('content.content-list', [ 'data' => json_decode($convs,true) ]);
+      
+      
+      $query = DB::table('categorylists')
+                  ->select('categories.title','categorylistcontents.ischeck')
+                  ->join('categorylistcontents','categorylists.checklistid' , '=','categorylistcontents.checklistid')
+                  ->join('categories','categorylistcontents.categoryid','=','categories.id')
+                  ->where('categorylists.checklistid' ,$id)
+                  ->get();
+                  $convs = json_encode($query);
+      
+    return view('content.content-list', [ 'data' => json_decode($convs,true) ]);
     }
     
     

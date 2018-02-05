@@ -1,12 +1,39 @@
 @extends('master.layout-profile') @section('content')
 <script src="{{ asset('js/jquery.js') }}"></script>
+
 <script src="{{asset('js/datatables.js')}}"></script>
 <style type="text/css">
     input[type=checkbox] {
         height: 20px;
         width: 20px;
     }
+    
+    
+    
 </style>
+
+<script type="text/javascript">
+    
+  $(function () {
+      $("form").submit(function () {
+ 
+    var this_master = $(this);
+
+    this_master.find('input[type="checkbox"]').each( function () {
+        var checkbox_this = $(this);
+
+
+        if( checkbox_this.is(":checked") == true ) {
+            checkbox_this.attr('value','1');
+        } else {
+            checkbox_this.prop('checked',true);
+            //DONT' ITS JUST CHECK THE CHECKBOX TO SUBMIT FORM DATA    
+            checkbox_this.attr('value','0');
+        }
+    })
+})
+    });
+</script>>
 <link href="{{asset('css/treeview.css')}}" rel="stylesheet">
 
 <div class="right_col" role="main">
@@ -19,7 +46,7 @@
                         <div class="clearfix"></div>
                     </div>
                 <div class="x_content">
-                        <form method="post" action="saveChecklistData">
+                        <form method="post" action="saveCategoryListData">
                     
                      @foreach($q as $a)
                      <input type="text" name="userpartyid" id="userpartyid" value="{{$a->partyid}}" style="display:none;" />
@@ -32,7 +59,7 @@
                             <li>             
                            
                                            
-                                                <input type="checkbox" name="checklist[{{ $category->id}}]" id="{{ $category->id }}" value="{{ $category->title }}"/>
+                                                <input type="checkbox" name="checklist[{{ $category->id}}]" id="{{ $category->id }}">
                                                 <label for="{{ $category->title }}"> {{ $category->title }}</label>
                                             
                              
