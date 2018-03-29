@@ -29,7 +29,7 @@ Route::get('addCategoryList',['uses'=>'SiteController@addCategoryListItem']);
 Route::get('addChildItem',['uses'=>'SiteController@addChildItem']);
 Route::get('viewCheckList',['uses'=>'SiteController@viewCheckList']);
 Route::get('showdiagnosislist/{id}',['uses'=>"PatientController@displayDiagnostic"]);
-Route::get('showtally',['uses'=>"PatientController@getdiagnosistally"]);
+Route::get('showtally',['uses'=>"PatientController@generateDataTally"]);
 
 
 //Route::post('newDiagnosis/{id}', ['uses'=>'PatientController@saveChecklistData']);
